@@ -1,0 +1,19 @@
+version: '3.5'
+services:
+  solr:
+    image: logilite-solr:5.5
+    container_name: logilite-solr
+    volumes:
+      - solr_data:/opt/solr:rw
+    ports:
+      - "8984:8983"
+    networks:
+      - network
+
+networks:
+  network:
+    driver: bridge
+
+volumes:
+  solr_data:
+

@@ -1,0 +1,56 @@
+version: '3.5'
+services:
+  database:
+    image: postgres:10.9
+    container_name: postgres
+    volumes:
+      - postgres:/var/lib/postgresql/data:rw
+    ports:
+      - "${PGHOST_PORT}:${PGPORT}"
+    networks:
+      - network
+
+  idempiere:
+    image: prajavat-idempiere:5.1
+    build:
+      context: idempiere
+    container_name: idempiere
+    volumes:
+      - $PWD/idempiere_data:/opt/idempiere-server:rw
+    ports:
+      - "${IDHOST_PORT}:${IDPORT}"
+      - "${IDSECURE_HOSTPORT}:${IDSECURE_PORT}"
+      - "${OSGIHOST_PORT}:${OSGI_PORT}"
+    depends_on:
+      - database
+    environment:
+      - PGHOST=${PGHOST}
+      - PGPORT=${PGPORT}
+      - DBPASS_SU=${DBPASS_SU}
+      - DBPASS=${DBPASS}
+    networks:
+      - network
+
+  solr:
+    image: prajavat-solr:5.5
+    build:
+      context: solr
+    container_name: solr
+    volumes:
+      - $PWD/solr_data:/opt/solr:rw
+    ports:
+      - "${SOLRHOST_PORT}:${SOLR_PORT}"
+    depends_on:
+      - idempiere
+    networks:
+      - network
+
+networks:
+  network:
+    driver: bridge
+
+volumes:
+  postgres:
+#   idempiere:
+#   solr_data:
+
