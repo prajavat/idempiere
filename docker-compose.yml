@@ -16,7 +16,7 @@ services:
       context: idempiere
     container_name: idempiere
     volumes:
-      - $PWD/idempiere_data:/opt/idempiere-server:rw
+      - idempiere:/opt/idempiere-server:rw
     ports:
       - "${IDHOST_PORT}:${IDPORT}"
       - "${IDSECURE_HOSTPORT}:${IDSECURE_PORT}"
@@ -37,7 +37,7 @@ services:
       context: solr
     container_name: solr
     volumes:
-      - $PWD/solr_data:/opt/solr:rw
+      - solr_data:/opt/solr:rw
     ports:
       - "${SOLRHOST_PORT}:${SOLR_PORT}"
     depends_on:
