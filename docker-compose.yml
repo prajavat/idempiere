@@ -51,6 +51,6 @@ networks:
 
 volumes:
   postgres:
-#   idempiere:
-#   solr_data:
+  idempiere:
+  solr_data:
 
