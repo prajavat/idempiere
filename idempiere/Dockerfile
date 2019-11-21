@@ -4,8 +4,8 @@ MAINTAINER Prashant Rajavat <prashant.rajavat1996@gmail.com>
 
 ENV SCREPTS_PATH="/opt/scripts" \
     JENKINSURL="http://jenkins.logilite.com/" \
-    JENKINSPROJECT="logiliteID_5_1" \
-    JENKINS_BUILD_NUMBER="" \
+    JENKINSPROJECT="${JENKINSPROJECT:-logiliteID_5_1}" \
+    JENKINS_BUILD_NUMBER="${JENKINS_BUILD_NUMBER:-build/41}" \
     IDEMPIERE_VERSION="5.1" \
     JENKINS_AUTHCOMMAND="" \
     INSTALLPATH="/opt/idempiere-server" \
