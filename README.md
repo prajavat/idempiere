@@ -9,9 +9,10 @@ Requirements
 Start Docker Container
 ----------------------
 
+```
 docker-compose build
 docker-compose up -d
-
+```
 
 Check log of iDempiere
 ----------------------
