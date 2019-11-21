@@ -2,25 +2,33 @@ iDempiere on dockerize.
 =========
 iDempiere and Open Source ERP are quite possibly the biggest discontinuous changes and enablers for producing business efficiency and insight.
 
-Requirements
+Requirements/Dependency
 ------------
+idempiere repository only required docker on host machine.
 
+  ## Install Docker.
+  ```
+  sudo apt-get update
+  sudo apt-get install docker.io
+  ```
+
+  # Install Docker Compose.
+  ```
+  sudo curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+  sudo chmod +x /usr/local/bin/docker-compose
+  ```
 
 Start Docker Container
 ----------------------
-
 ```
 docker-compose build
 docker-compose up -d
-
 ```
 
 Check log of iDempiere
 ----------------------
-
 ```
 docker container logs --follow idempiere
-
 ```
 
 Setup Solr authentication
@@ -59,5 +67,4 @@ vi server/solr-webapp/webapp/WEB-INF/web.xml
 cd server/etc/
 vi realm.properties
 admin: admin,core1-role
-
 ```
