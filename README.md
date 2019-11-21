@@ -17,17 +17,6 @@ docker-compose restart Container-name
 
 # Check log of iDempiere 
 
-# Create Core in Solr (Please Replace core name as per you want to create Ex:- DMS)
-docker exec -it solr ./bin/solr create -c gettingstarted -n data_driven_schema_configs
-docker exec -it solr ./bin/solr create -c DMS -n data_driven_schema_configs
-
-# Create DMS_Content & DMS_Thumbnails folder in iDempiere container
-docker exec -it idempiere mkdir /opt/idempiere-server/DMS_Content
-docker exec -it idempiere mkdir /opt/idempiere-server/DMS_Thumbnails
-
-# Install DMS in iDempiere container
-docker exec -it idempiere sh dms-update.sh
-
 
 # Setup Solr authentication
 vi server/etc/jetty.xml
