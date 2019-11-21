@@ -12,11 +12,16 @@ Start Docker Container
 ```
 docker-compose build
 docker-compose up -d
+
 ```
 
 Check log of iDempiere
 ----------------------
 
+```
+docker container logs --follow idempiere
+
+```
 
 Setup Solr authentication
 -------------------------
