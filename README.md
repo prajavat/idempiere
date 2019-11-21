@@ -1,24 +1,26 @@
-# The purpose of this project is to make iDempiere on dockerize.
-
+iDempiere on dockerize.
+=========
 iDempiere and Open Source ERP are quite possibly the biggest discontinuous changes and enablers for producing business efficiency and insight.
 
-# Setup iDempiere on docker
-To install all components of iDempiere 5.1 on Docker Container, simply copy and paste hole iDempiere-Docker project in opt directory, Set All idempiere, Postgres & Solr relative properties in .env file. After about 8 minutes, iDempiere Container will appear on your machine.
+Requirements
+------------
 
-# start Docker Container
+
+Start Docker Container
+----------------------
+
 docker-compose build
 docker-compose up -d
 
-# Stop Docker Container
-docker-compose stop Container-name
 
-# Restart Docker Container
-docker-compose restart Container-name
-
-# Check log of iDempiere 
+Check log of iDempiere
+----------------------
 
 
-# Setup Solr authentication
+Setup Solr authentication
+-------------------------
+
+```
 vi server/etc/jetty.xml
 
     <Call name="addBean">
@@ -51,3 +53,5 @@ vi server/solr-webapp/webapp/WEB-INF/web.xml
 cd server/etc/
 vi realm.properties
 admin: admin,core1-role
+
+```
